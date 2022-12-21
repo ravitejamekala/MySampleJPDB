@@ -14,52 +14,52 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></scri
 <body>
 <div class="container">
 <h2>Student Registration</h2>
-<form id="empForm" method="post">
+<form id="stdForm" method="post">
 <div class="form-group">
-<span><label for="empId">Student ID:</label> <label id="empIdMsg">
+<span><label for="empId">Student ID:</label> <label id="stdIdMsg">
 </label></span>
-<input type="text" class="form-control" name="empId" id="empId"
+<input type="text" class="form-control" name="empId" id="stdId"
 placeholder="Enter student ID" required>
 </div>
 <div class="form-group">
-<label for="empName">Student Name:</label>
-<input type="text" class="form-control" id="empName"
-placeholder="Enter student Name" name="empName">
+<label for="stdName">Student Name:</label>
+<input type="text" class="form-control" id="stdName"
+placeholder="Enter student Name" name="stdName">
 </div>
 <div class="form-group">
-<label for="empEmail">Email:</label>
-<input type="email" class="form-control" id="empEmail"
-placeholder="Enter student Email" name="empEmail">
+<label for="stdEmail">Email:</label>
+<input type="email" class="form-control" id="stdEmail"
+placeholder="Enter student Email" name="stdEmail">
 </div>
-<input type="button" class="btn btn-primary" id="empSave" value="Save"
-onclick="saveEmployee();">
+<input type="button" class="btn btn-primary" id="stdSave" value="Save"
+onclick="saveStudent();">
 </form>
 </div>
 <script>
-$("#empId").focus();
+$("#stdId").focus();
 function validateAndGetFormData() {
-var empIdVar = $("#empId").val();
-if (empIdVar === "") {
-alert("Employee ID Required Value");
-$("#empId").focus();
+var stdIdVar = $("#stdId").val();
+if (stdIdVar === "") {
+alert("Student ID Required Value");
+$("#stdId").focus();
 return "";
 }
-var empNameVar = $("#empName").val();
-if (empNameVar === "") {
-alert("Employee Name is Required Value");
-$("#empName").focus();
+var stdNameVar = $("#stdName").val();
+if (stdNameVar === "") {
+alert("Student Name is Required Value");
+$("#stdName").focus();
 return "";
 }
-var empEmailVar = $("#empEmail").val();
-if (empEmailVar === "") {
-alert("Employee Email is Required Value");
-$("#empEmail").focus();
+var stdEmailVar = $("#stdEmail").val();
+if (stdEmailVar === "") {
+alert("Student Email is Required Value");
+$("#stdEmail").focus();
 return "";
 }
 var jsonStrObj = {
-empId: empIdVar,
-empName: empNameVar,
-empEmail: empEmailVar,
+stdId: stdIdVar,
+stdName: stdNameVar,
+stdEmail: stdEmailVar,
 };
 return JSON.stringify(jsonStrObj);
 }
@@ -92,12 +92,12 @@ jsonObj = JSON.parse(dataJsonObj);
 return jsonObj;
 }
 function resetForm() {
-$("#empId").val("")
-$("#empName").val("");
-$("#empEmail").val("");
-$("#empId").focus();
+$("#stdId").val("")
+$("#stdName").val("");
+$("#stdEmail").val("");
+$("#stdId").focus();
 }
-function saveEmployee() {
+function saveStudent() {
 var jsonStr = validateAndGetFormData();
 if (jsonStr === "") {
 return;
